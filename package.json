@@ -1,0 +1,60 @@
+{
+  "name": "elephantdexcontracts",
+  "version": "2.0.2",
+  "license": "MIT",
+  "description": "Token, Liquidity Mining and Governance contracts for Elephant Dex",
+  "files": [
+    "contracts",
+    "build"
+  ],
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elephantproject/contracts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/elephantproject/contracts.git/issues"
+  },
+  "homepage": "https://github.com/elephantproject/contracts.git#readme.md",
+  "keywords": [
+
+  ],
+  "devDependencies": {
+    "@types/chai": "^4.2.6",
+    "@types/mocha": "^5.2.7",
+    "chai": "^4.2.0",
+    "ethereum-waffle": "^2.4.1",
+    "ethereumjs-util": "^6.2.0",
+    "mocha": "^6.2.2",
+    "prettier": "^1.19.1",
+    "prettier-plugin-solidity": "^1.0.0-beta.5",
+    "rimraf": "^3.0.0",
+    "solc": "0.6.12",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.3"
+  },
+  "dependencies": {
+    "elephantdexcore": "^2.0.1",
+    "elephantdexlib": "^2.0.1",
+    "elephantdexperiphery": "^2.0.2",
+    "@harmony-js/core": "^0.1.57",
+    "@openzeppelin/contracts": "^3.1.0",
+    "dotenv": "^10.0.0",
+    "tslib": "^2.3.0"
+  },
+  "scripts": {
+    "lint": "yarn prettier ./test/*.ts --check",
+    "lint:fix": "yarn prettier ./test/*.ts --write",
+    "clean": "rimraf ./build/",
+    "precompile": "yarn clean",
+    "compile": "waffle .waffle.json",
+    "pretest": "yarn compile",
+    "test": "mocha",
+    "prepublishOnly": "yarn test",
+    "deploytest": "truffle migrate --network testnet --Skip-Dry-Run --compile-none",
+    "deploy": "truffle migrate --network mainnet0 --Skip-Dry-Run --compile-none --to 1",
+    "deploy2": "truffle migrate --network mainnet0 --Skip-Dry-Run --compile-none --f 2 --to 2",
+    "deploy3": "truffle migrate --network mainnet0 --Skip-Dry-Run --compile-none --f 3"
+
+  }
+}
